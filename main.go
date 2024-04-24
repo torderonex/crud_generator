@@ -55,9 +55,14 @@ func main() {
 		log.Fatal("Wrong command line args")
 	}
 
-	err := os.Chdir(*out)
-	if err != nil {
-		log.Fatal(err)
+	dir, err := os.Getwd()
+	err = os.Chdir(dir)
+
+	if !strings.HasPrefix(*in, dir) {
+		*in = dir + *in
+	}
+	if !strings.HasPrefix(*out, dir) {
+		*out = dir + *out
 	}
 
 	_, err = exec.Command("cmd", "/c", "go get github.com/jmoiron/sqlx").Output()

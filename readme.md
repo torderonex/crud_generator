@@ -7,7 +7,7 @@
 
 # Example
 
-\entites\user .go 
+\entites\user.go 
 ```go
 package  entites
 

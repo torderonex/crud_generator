@@ -1,4 +1,4 @@
-# Using
+# Usage
 
 - Download using `git clone https://github.com/torderonex/crud_generator`
 - Compile the program with `go build -o crud_generate main.go`

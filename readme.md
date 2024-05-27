@@ -14,7 +14,7 @@ package  entites
 type  User  struct {
 	Id  int
 	Name  string
-	Passowrd  string
+	Password  string
 }
 ```
 ```bash
@@ -43,7 +43,7 @@ func NewUserRepository(db * sqlx.DB) * UserRepository {
 func(r UserRepository) CreateUser(u entites.User)(int, error) {
     var id int
     query: = fmt.Sprintf("INSERT INTO users VALUES ($1,$2) RETURNING id")
-    row: = r.Db.QueryRow(query, u.Id, u.Name, u.Passowrd)
+    row: = r.Db.QueryRow(query, u.Id, u.Name, u.Password)
     if err: = row.Scan( & id);
     err != nil {
         return 0, err
